@@ -102,20 +102,21 @@ public class SwipeView extends LinearLayout{
          */
         @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
+            System.out.println("---> clampViewPositionHorizontal -> left: " + left);
             if(child == contentView){
-               int leftBound = getPaddingLeft();
-               int minLeftBoung = -leftBound - dragDistance;
-               int newLeft = Math.min(Math.max(minLeftBoung, left), 0);
+                int leftBound = getPaddingLeft();
+                int minLeftBound = -leftBound - dragDistance;
+                int newLeft = Math.min(Math.max(minLeftBound, left), 0);
 
                 System.out.println("---> clampViewPositionHorizontal : contentView ----------");
                 System.out.println("---> contentView ----------dragDistance： " + dragDistance);
-                System.out.println("---> contentView -> minLeftBound:" + minLeftBoung);
-                System.out.println("---> contentView -> newLeft:" + newLeft);
+                System.out.println("---> contentView -> minLeftBound: " + minLeftBound);
+                System.out.println("---> contentView -> newLeft: " + newLeft);
                 return newLeft;
             }else{
                 int minLeftBound = getPaddingLeft() + contentView.getMeasuredWidth() - dragDistance;
                 int maxLeftBound = getPaddingLeft() + contentView.getMeasuredWidth() + getPaddingRight();
-                int newLeft = Math.min(Math.max(maxLeftBound, left) , minLeftBound);
+                int newLeft = Math.min(Math.max(minLeftBound, left) , maxLeftBound);
 
                 System.out.println("---> clampViewPositionHorizontal : actionView ----------");
                 System.out.println("---> actionView -> minLeftBound:" + minLeftBound);
@@ -142,10 +143,10 @@ public class SwipeView extends LinearLayout{
                 openAction = false;
             }else if(xvel < -auto_open_velocity_limit){
                 openAction = true;
-            }else if(draggedX < -dragDistance/2){
-                openAction = false;
-            }else if(draggedX > -dragDistance/2){
+            }else if(draggedX <= -dragDistance/2){
                 openAction = true;
+            }else if(draggedX > -dragDistance/2){
+                openAction = false;
             }
 
             int settleDestX = openAction ? -dragDistance : 0;

@@ -18,11 +18,10 @@ public class ForgroundTestActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        System.out.println("==============> oncreate");
         setContentView(R.layout.activity_forground_test);
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        toolbar.setTitle("ToolBar");
+        toolbar.setTitle("ForgroundTestActivity");
         setSupportActionBar(toolbar);
     }
 
@@ -50,37 +49,10 @@ public class ForgroundTestActivity extends ActionBarActivity {
             return true;
         }
 
+        if(id == R.id.action_navigate){
+            startActivity(new Intent(this, com.yoyo.yotest01.MainActivity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onStart() {
-        System.out.println("=================> onstart !!");
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        System.out.println("=================> onresume !");
-        super.onResume();
-    }
-
-
-    @Override
-    protected void onPause() {
-        System.out.println("==================> onPause !");
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        System.out.println("=================> onstop !!");
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        System.out.println("=================> ondestroy !!!");
-        super.onDestroy();
-    }
 }

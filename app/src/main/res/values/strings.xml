@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="action_search">search</string>
     <string name="title_activity_forground_test">ForgroundTestActivity</string>
+    <string name="next">next</string>
 
 </resources>
