@@ -3,13 +3,19 @@
     package="com.yoyo.yotest01" >
 
     <application
+        android:name="com.yoyo.application.AppApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.yoyo.yotest01.MainActivity"
             android:label="@string/app_name" >
+
+        </activity>
+        <activity
+            android:name="com.yoyo.test01.ForgroundTestActivity"
+            android:label="@string/title_activity_forground_test" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
