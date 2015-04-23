@@ -1,7 +1,7 @@
 package com.yoyo.test01;
 
 import android.content.Intent;
-import android.os.PersistableBundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.yoyo.yotest01.MainActivity;
 import com.yoyo.yotest01.R;
 
 public class ForgroundTestActivity extends ActionBarActivity {
@@ -23,6 +22,16 @@ public class ForgroundTestActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         toolbar.setTitle("ForgroundTestActivity");
         setSupportActionBar(toolbar);
+
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);  // 必须写这句才能出来抽屉
+
+        NavigationDrawerFragment navigationDrawerFragment =
+                (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.navigate_fragment);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        navigationDrawerFragment.setUp(drawerLayout, toolbar);
+
+
     }
 
     public void jumpToMainAtivity(View v){
