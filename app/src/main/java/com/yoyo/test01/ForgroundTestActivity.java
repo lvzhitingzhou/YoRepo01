@@ -17,7 +17,7 @@ public class ForgroundTestActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_forground_test);
+        setContentView(R.layout.foreground_acitivity_layout_cover_toolbar);
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         toolbar.setTitle("ForgroundTestActivity");
@@ -27,15 +27,15 @@ public class ForgroundTestActivity extends ActionBarActivity {
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);  // 必须写这句才能出来抽屉
 
         NavigationDrawerFragment navigationDrawerFragment =
-                (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.navigate_fragment);
+                (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.drawer_fragment);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        navigationDrawerFragment.setUp(drawerLayout, toolbar);
+        navigationDrawerFragment.setUp(R.id.drawer_fragment, drawerLayout, toolbar);
 
 
     }
 
     public void jumpToMainAtivity(View v){
-        Intent intent = new Intent(this, com.yoyo.yotest01.MainActivity.class);
+        Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
     }
 
@@ -59,7 +59,7 @@ public class ForgroundTestActivity extends ActionBarActivity {
         }
 
         if(id == R.id.action_navigate){
-            startActivity(new Intent(this, com.yoyo.yotest01.MainActivity.class));
+            startActivity(new Intent(this, SecondActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

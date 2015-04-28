@@ -2,12 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fb8c00"
     tools:context="com.yoyo.test01.NavigationDrawerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/drawer_image"
+        android:layout_width="@dimen/nav_drawer_width"
+        android:layout_height="140dp"
+        android:layout_marginTop="@dimen/image_margin_top"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_abstract"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_list"
+        android:layout_below="@+id/drawer_image"
+        android:background="#dadada"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
+
 
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.yoyo.yotest01;
+package com.yoyo.test01;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.yoyo.yotest01.R;
 
-public class MainActivity extends ActionBarActivity {
-    private   Toolbar toolbar;
+
+public class SecondActivity extends ActionBarActivity {
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -20,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
 
-        toolbar.setTitle("MainActivity");
+        toolbar.setTitle("SecondActivity");
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setHomeButtonEnabled(true);
